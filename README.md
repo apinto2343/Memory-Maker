@@ -1,5 +1,7 @@
 # COP 3665 - Mobile Programming
 
+#Due - July 15th, 2020
+
 # Project 2 - The Memory Maker for Pet Lovers
 
 ## Objective:
@@ -14,7 +16,7 @@ Develop a mobile program that uses:
 - Implicit Intents
 - Constraint Layouts
 - Fragments
-- Working with Sqlite
+- Working with SQLite
 
 In addition:
 
@@ -26,17 +28,17 @@ To complete this project, you need to make sure that you have read and watched a
 
 ## Problem Description:
 
-You are tasked to create a memory maker application that builds upon the discussion from the first half of the course. Using this application, users can take pictures and record details of the memories that they make with their pets. Users can save their memories to their device using the file system and a Sqlite database. Furthermore, users can favorite their memories and send reminders of past events through other apps on their phone. Users should be able to filter memories by favorites, and delete and edit old memories. 
+You are tasked to create a memory maker application that builds upon the discussion from the first half of the course. Using this application, users can take pictures and record details of the memories that they make with their pets. Users can save their memories to their device using the file system and a SQLite database. Furthermore, users can favorite their memories and send reminders of past events through other apps on their phone. Users should be able to filter memories by favorites, and delete and edit old memories. 
 
 ## Overview of the Interface:
 
-You must provide two different activities in your program, and create three different fragment classes. The first activity brings up a RecyclerView that lists all memories currently in the database. You will notice that there are three items in the toolbar. The first item allows the user to create a new memory. The second item allows users to filter the list in the RecyclerView to only show those memories that are favorited. This filtering should be handled by whatever model class you use to store a collection of memories and not by the fragment class (i.e., create a getFavorites method along with a getMemories method in a collection class). The final item shows all memories whether they are favorited or not (this is the default view). 
+You must provide two different activities in your program, and create three different fragment classes. The first activity brings up a RecyclerView that lists all memories currently in the database. You will notice that there are three items in the toolbar. The first item allows the user to create a new memory. The second item allows users to filter the list in the RecyclerView to only show those memories that are favorited. This filtering should be handled by a repository class you use to store a collection of memories and not by the fragment class (i.e., create a getFavorites method along with a getMemories method in a collection class). The final item shows all memories whether they are favorited or not (this is the default view). 
 
 The content of the activity belongs to a fragment. Each item in the RecyclerView gives a thumbnail which is a smaller version of the image taken when the memory was created. Each item also includes the title, date, and an icon on the right hand side that indicates whether the memory was favorited or not. You do not have to match margins and padding exactly, but you should be able to get items positioned similar to what is shown in the image. If a photo has not been taken, then you should show a gray square as shown in the image. 
 
 ![RecyclerView Activity](first.PNG)
 
-The second activity is the details activity. This is a ViewPager which means that swiping left or right should move the user between detail fragments for memories. In the toolbar of this activity, you will see two items. The first item will delete the current memory and send the user back to the memory list. The second item will allow the user to send details of the memory through another application, such as an email application like Gmail. To do this, you should be filling in a template string as was done with the crime report. A template string that you can use is as follows: Remember %1s! It happened on %2s. Remember %3s! (the first item is the title, the second is the date, and the last is the description).
+The second activity is the details activity. In the toolbar of this activity, you will see two items. The first item will delete the current memory and send the user back to the memory list. The second item will allow the user to send details of the memory through another application, such as an email application like Gmail. To do this, you should be filling in a template string as was done with the crime report. A template string that you can use is as follows: Remember %1s! It happened on %2s. Remember %3s! (the first item is the title, the second is the date, and the last is the description).
 
 Inside of each fragment, you will see a label indicating the title above an EditText. On the right hand side is a switch that can be toggled for whether the memory is a favorite. You should be able to line the title and switch up as is shown in the image using the proper layout. Below the title and switch, you will see an ImageView. This ImageView is centered to the screen above a button for the camera. Pressing on the button should trigger the device's camera and allow the user to take a picture which will then fill in the ImageView. Below the camera button is a button to select a date for which the memory took place. Once pressed, it will bring up a dialog with a DatePicker. At the bottom is a Description. The Description also uses an EditText, but it is sized as to allow multiple lines to be able to be seen at once. A user begins typing at the beginning of the box's hint (i.e., Enter a desc...), which should be at the top left corner of the box. Notice that the EditText continues off the screen. In order to allow for the user to access all parts of the fragment, the fragment should be scrollable (look into ScrollView). 
 
@@ -52,7 +54,7 @@ The image below links to a [video](https://youtu.be/szX3l1C50fA) of a sample exe
 
 ## Additional Files:
 
-I will not dictate exactly what classes you will need. However, a note about organization, you should separate your concerns and responsibilities. Create new packages to store classes handling database, modeling, and utility information as was done in the videos. It is not a good idea to combine responsibilities (e.g., view information with database queries and models) into the same classes. This is creating a mess that someone will eventually have to clean up (often times yourself). 
+I will not dictate exactly what classes you will need. However, a note about organization, you should separate your concerns and responsibilities. Create new packages to store classes handling database, repository, modeling, and utility information as was done in the videos. It is not a good idea to combine responsibilities (e.g., view information with database queries and models) into the same classes. This is creating a mess that someone will eventually have to clean up (often times yourself). 
 
 ## Additional Requirements:
 
