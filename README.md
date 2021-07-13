@@ -2,7 +2,7 @@
 
 #Due - July 15th, 2020
 
-# Project 2 - The Memory Maker for Pet Lovers
+# Project 3 - The Memory Maker for Pet Lovers
 
 ## Objective:
 
